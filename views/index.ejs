@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style type="text/css">
+        form .error {
+        color: #ff0000;
+        font-size: small;
+        font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <form action="/" method="post" id="checkvalidation">
+        <table>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" name="Name"></td>
+            </tr>
+            
+            <tr>
+                <th>Email</th>
+                <td><input type="text" name="Email"></td>
+            </tr>
+    
+            <tr  rowspan="2">
+                <td><button>Add User</button></td>
+            </tr>
+        </table>
+        
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script> 
+
+    <script>
+        $("#checkvalidation").validate({
+        rules: {
+            Name: {
+                required: true
+            },
+            Email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            Name: {
+                required: "Please enter your Name"
+            },
+            Email: {
+                required: "Please enter your Email",
+                email: "Please enter a valid Email"
+            }
+        }
+        
+    });
+    </script>
+</body>
+</html>
